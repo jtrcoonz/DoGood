@@ -6,7 +6,7 @@ import HeaderBar from "./header-bar";
 import LandingPage from "./pages/landing-page";
 import RegistrationPage from "./pages/registration-page";
 import CreateListingPage from "./pages/create-listing-page";
-import Dashboard from "./pages/dashboar";
+import Dashboard from "./pages/dashboard";
 
 import { refreshAuthToken } from "../actions/auth";
 

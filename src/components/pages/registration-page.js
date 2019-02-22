@@ -10,7 +10,3 @@ export default function RegistrationPage(props) {
     </div>
   );
 }
-
-const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
-});
