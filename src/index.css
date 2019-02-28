@@ -1,7 +1,23 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
 }
-
-/* Reg page */
+.site-logo {
+	display: inline-block;
+	margin: 0;
+	position: absolute;
+	top: 15px;
+	left: 20px;
+	font-size: 30px;
+}
+.site-logo, .page-title {
+	font-family: 'Satisfy', cursive;
+}
+header {
+	margin: 70px 0px auto;
+	text-align: center;
+}
+.page-title {
+	font-size: 50px;
+	margin: 0;
+}
