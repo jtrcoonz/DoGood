@@ -16,17 +16,17 @@ export default function LandingPage(props) {
 			<Link to="/signup" id="sign-up-link" className="button-style">Sign up to post a position</Link>
     	</header>
     	<main role="main">
-    		<h3>Search</h3>
-    		<input type="text" placeholder="IPV, homelessness..."></input>
+    		<h3 id="search-bar-label">Search</h3>
+    		<input type="text" placeholder="IPV, homelessness..." id="search-bar"></input>
     		<section role="region" id="search-results">
     			<div className="result">
-    				<span>Org 1</span><span>Title</span><span>Date</span>
+    				<span className="org-name">Org 1</span><span className="position-title">Title</span><span className="post-date">Date</span>
     			</div>
     			<div className="result">
-    				<span>Org 2</span><span>Title</span><span>Date</span>
+    				<span className="org-name">Org 2</span><span className="position-title">Title</span><span className="post-date">Date</span>
     			</div>
     			<div className="result">
-    				<span>Org 3</span><span>Title</span><span>Date</span>
+    				<span className="org-name">Org 3</span><span className="position-title">Title</span><span className="post-date">Date</span>
     			</div>
     		</section>
     	</main>

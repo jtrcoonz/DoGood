@@ -5,22 +5,25 @@ import { Link, Redirect } from "react-router-dom";
 export default function Dashboard(props) {
   return (
     <div className="dashboard-container">
-    	<header role="heading">
-    		<h1>Your Listings</h1>
-    	</header>
-    	<main role="main">
-    		<Link to="/create">New listing</Link>
-    		<section role="region" id="user-listings">
-    			<div className="listing">
-    				<span>Org 1</span><span>Title</span><span>Date</span>
-    			</div>
-    			<div className="listing">
-    				<span>Org 2</span><span>Title</span><span>Date</span>
-    			</div>
-    			<div className="listing">
-    				<span>Org 3</span><span>Title</span><span>Date</span>
-    			</div>
-    		</section>
+    	<nav role="navigation" className="nav-bar">
+            <h1 className="site-logo">DG</h1>
+        </nav>
+        <header role="banner">
+            <h2 className="page-title">Your Listings</h2>
+        </header>
+    	<main role="main" id="dash-main">
+    		<Link to="/create" className="button-style">New Listing</Link>
+    		<section role="region" id="search-results">
+                <div className="result">
+                    <span className="org-name">Org 1</span><span className="position-title">Title</span><span className="post-date">Date</span>
+                </div>
+                <div className="result">
+                    <span className="org-name">Org 2</span><span className="position-title">Title</span><span className="post-date">Date</span>
+                </div>
+                <div className="result">
+                    <span className="org-name">Org 3</span><span className="position-title">Title</span><span className="post-date">Date</span>
+                </div>
+            </section>
     	</main>
     </div>
   );
