@@ -1,7 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../pages-styling/landing-page.css';
+import { API_BASE_URL } from '../../config'
+import Result from './result'
 
 export default class LandingPage extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class LandingPage extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('http://localhost:8080/api/listings',
+    fetch(`${API_BASE_URL}/listings`,
     {
       headers: {
         'Accept': 'application/json',
@@ -34,7 +35,7 @@ export default class LandingPage extends React.Component {
     console.log(this.state.listings)
     return (
       <div id="landing-container">
-        <nav role="navigation" className="nav-bar">
+        <nav className="nav-bar">
           <h1 className="site-logo">DG</h1>
           <Link to="#" className="sign-in-link">Sign in</Link>
         </nav>
@@ -46,11 +47,9 @@ export default class LandingPage extends React.Component {
         <main role="main">
         	<h3 id="search-bar-label">Search</h3>
         	<input type="text" placeholder="IPV, homelessness..." id="search-bar"></input>
-        	<section role="region" id="search-results">
+        	<section id="search-results">
           {this.state.listings.map((listing, index) => (
-            <div className="result" key={index}>
-              <span className="org-name">{listing.title}</span><span className="position-title">{listing.title}</span><span className="post-date">{listing.date}</span>
-            </div>
+            <Result listing={listing} key={index}/>
           ))}
         	</section>
         </main>

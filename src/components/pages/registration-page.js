@@ -1,16 +1,40 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../config.js";
 
 export default class RegistrationPage extends React.Component {
   onSubmit(event) {
     event.preventDefault();
-    this.props.history.push("/dashboard");
+    let user = {
+      organizationName: this.orgNameInput.value,
+      organizationUrl: this.orgUrlInput.value,
+      organizationDescription: this.orgDescriptionInput.value,
+      username: this.usernameInput.value,
+      password: this.passwordInput.value
+    };
+    fetch(`${API_BASE_URL}/users`, 
+    {
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        // 'Authorization': `Bearer ${state.token}`
+      },
+      method: "POST",
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(response => {
+      console.log(response);
+      this.props.history.push("/dashboard");
+    })
+    .catch(error => {
+      console.log("bad request", error);
+    })
   }
   render() {
   return (
     <div className="registration-container">
-        <nav role="navigation" className="nav-bar">
+        <nav className="nav-bar">
             <h1 className="site-logo">DG</h1>
             <Link to="#" className="sign-in-link">Sign in</Link>
         </nav>
@@ -19,16 +43,16 @@ export default class RegistrationPage extends React.Component {
         </header>
     	  <main role="main">
       		<form onSubmit={(event) => this.onSubmit(event)}>
-      			<label for="form-org-name" className="form-label">Organization Name</label>
-      			<input type="text" required="true" id="form-org-name" className="form-input"></input>
-      			<label for="form-org-url" className="form-label">Organization URL</label>
-      			<input type="text" required="true" id="form-org-url" className="form-input"></input>
-      			<label for="form-description" className="form-label">Description</label>
-      			<input type="text" required="true" id="form-description" className="form-input"></input>
-            <label for="form-username" className="form-label">Username</label>
-            <input type="text" required="true" id="form-username" className="form-input"></input>
-            <label for="form-username" className="form-label">Password</label>
-            <input type="password" required="true" id="form-password" className="form-input"></input>
+      			<label htmlFor="form-org-name" className="form-label">Organization Name</label>
+      			<input type="text" required="true" id="form-org-name" className="form-input" ref={input => this.orgNameInput = input}></input>
+      			<label htmlFor="form-org-url" className="form-label">Organization URL</label>
+      			<input type="text" required="true" id="form-org-url" className="form-input" ref={input => this.orgUrlInput = input}></input>
+      			<label htmlFor="form-description" className="form-label">Description</label>
+      			<input type="text" required="true" id="form-description" className="form-input" ref={input => this.orgDescriptionInput = input}></input>
+            <label htmlFor="form-username" className="form-label">Username</label>
+            <input type="text" required="true" id="form-username" className="form-input" ref={input => this.usernameInput = input}></input>
+            <label htmlFor="form-username" className="form-label">Password</label>
+            <input type="password" required="true" id="form-password" className="form-input" ref={input => this.passwordInput = input}></input>
       			<button type="submit" className="button-style" id="sign-up-button">Sign up</button>
       		</form>
     	  </main>
