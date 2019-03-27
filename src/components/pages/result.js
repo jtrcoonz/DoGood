@@ -19,7 +19,7 @@ export default class Result extends React.Component {
       <div className="result">
         <span className="org-name">{this.props.listing.title}</span>
         <span className="position-title">{this.props.listing.title}</span>
-        <span className="post-date">{this.props.listing.date}</span>
+        <span className="post-date">{this.props.listing.date.toString().slice(0, 10)}</span>
         <button onClick={() => this.toggleDetails()}>
           {this.state.displayDetails ? "close" : "open"}
         </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from '../../config'
 
 export default class Dashboard extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ export default class Dashboard extends React.Component {
         }
     }
     componentDidMount() {
-        fetch('/api/listings',
+        fetch(`${API_BASE_URL}/listings`,
         {
           headers: {
             'Accept': 'application/json',

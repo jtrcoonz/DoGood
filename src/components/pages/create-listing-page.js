@@ -1,5 +1,6 @@
 import React from "react";
 import '../pages-styling/create-listing-page.css';
+import { API_BASE_URL } from '../../config'
 
 export default class CreateListingPage extends React.Component {
   formSubmitted(event) {
@@ -11,7 +12,7 @@ export default class CreateListingPage extends React.Component {
       location: this.locationInput.value,
       applyLink: this.applyLinkInput.value
     };
-    fetch('api/listings',
+    fetch(`${API_BASE_URL}/listings`,
     {
       headers: {
         'Accept': 'application/json',
