@@ -6,13 +6,11 @@ export default class RegistrationPage extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     let user = {
-      organizationName: this.orgNameInput.value,
-      organizationUrl: this.orgUrlInput.value,
-      organizationDescription: this.orgDescriptionInput.value,
+      //FIX ALL INPUTS
       username: this.usernameInput.value,
       password: this.passwordInput.value
     };
-    fetch(`${API_BASE_URL}/users`, {
+    fetch(`${API_BASE_URL}/api/login`, {
       headers: {
         accept: "application/json",
         "content-type": "application/json"
@@ -23,7 +21,8 @@ export default class RegistrationPage extends React.Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        this.props.history.push("/login-page");
+        localStorage.setItem("token", response.authToken);
+        this.props.history.push("/dashboard");
       })
       .catch(error => {
         console.log("bad request", error);
@@ -43,36 +42,6 @@ export default class RegistrationPage extends React.Component {
         </header>
         <main role="main">
           <form onSubmit={event => this.onSubmit(event)}>
-            <label htmlFor="form-org-name" className="form-label">
-              Organization Name
-            </label>
-            <input
-              type="text"
-              required="true"
-              id="form-org-name"
-              className="form-input"
-              ref={input => (this.orgNameInput = input)}
-            />
-            <label htmlFor="form-org-url" className="form-label">
-              Organization URL
-            </label>
-            <input
-              type="text"
-              required="true"
-              id="form-org-url"
-              className="form-input"
-              ref={input => (this.orgUrlInput = input)}
-            />
-            <label htmlFor="form-description" className="form-label">
-              Description
-            </label>
-            <input
-              type="text"
-              required="true"
-              id="form-description"
-              className="form-input"
-              ref={input => (this.orgDescriptionInput = input)}
-            />
             <label htmlFor="form-username" className="form-label">
               Username
             </label>
