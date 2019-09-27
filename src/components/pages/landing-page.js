@@ -34,8 +34,11 @@ export default class LandingPage extends React.Component {
       <div id="landing-container">
         <nav className="nav-bar">
           <h1 className="site-logo">DG</h1>
-          <Link to="#" className="sign-in-link">
+          <Link to="/login" className="sign-in-link">
             Sign in
+          </Link>
+          <Link to="/dashboard" className="dashboard-link">
+            Dashboard
           </Link>
         </nav>
         <header role="banner">

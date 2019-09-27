@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../../config.js";
 
-export default class RegistrationPage extends React.Component {
+export default class Login extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     let user = {
-      //FIX ALL INPUTS
       username: this.usernameInput.value,
       password: this.passwordInput.value
     };
-    fetch(`${API_BASE_URL}/api/login`, {
+    fetch(`${API_BASE_URL}/auth/login`, {
       headers: {
         accept: "application/json",
         "content-type": "application/json"
@@ -32,13 +31,13 @@ export default class RegistrationPage extends React.Component {
     return (
       <div className="registration-container">
         <nav className="nav-bar">
-          <h1 className="site-logo">DG</h1>
-          <Link to="#" className="sign-in-link">
-            Sign in
+          <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
+          <Link to="/signup" className="sign-in-link">
+            Sign up
           </Link>
         </nav>
         <header role="banner">
-          <h2 className="page-title">Sign Up</h2>
+          <h2 className="page-title">Sign In</h2>
         </header>
         <main role="main">
           <form onSubmit={event => this.onSubmit(event)}>
@@ -63,7 +62,7 @@ export default class RegistrationPage extends React.Component {
               ref={input => (this.passwordInput = input)}
             />
             <button type="submit" className="button-style" id="sign-up-button">
-              Sign up
+              Sign in
             </button>
           </form>
         </main>

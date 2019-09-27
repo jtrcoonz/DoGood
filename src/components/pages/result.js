@@ -1,4 +1,5 @@
 import React from "react";
+import "../pages-styling/result.css";
 
 export default class Result extends React.Component {
   constructor(props) {
@@ -18,21 +19,29 @@ export default class Result extends React.Component {
     return (
       <div className="result">
         <span className="org-name">{this.props.listing.title}</span>
-        <span className="position-title">{this.props.listing.title}</span>
+        <span className="position-title"><a href = {`${this.props.listing.applyLink}`}>{this.props.listing.title}</a></span>
         <span className="post-date">{this.props.listing.date.toString().slice(0, 10)}</span>
-        <button onClick={() => this.toggleDetails()}>
-          {this.state.displayDetails ? "close" : "open"}
+        <button className="drop-arrow" onClick={() => this.toggleDetails()}>
+          {this.state.displayDetails ? "▲" : "▼"}
         </button>
 
         {this.state.displayDetails ? (
           <div className="result-details">
             <span className="result-category">
+              <span className="detail-header">Category</span>
+              <span>: </span>
               {this.props.listing.category}
+              <br></br>
             </span>
             <span className="result-location">
+              <span className="detail-header">Location</span>
+              <span>: </span>
               {this.props.listing.location}
+              <br></br>
             </span>
             <span className="result-description">
+              <span className="detail-header">Description</span>
+              <span>: </span>
               {this.props.listing.description}
             </span>
           </div>

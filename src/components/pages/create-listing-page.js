@@ -33,7 +33,7 @@ export default class CreateListingPage extends React.Component {
     return (
       <div className="listing-container">
         <nav className="nav-bar">
-          <h1 className="site-logo">DG</h1>
+          <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
         </nav>
         <header role="banner">
           <h2 className="page-title">Create Listing</h2>

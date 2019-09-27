@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
+import Result from "./result";
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class Dashboard extends React.Component {
     return (
       <div className="dashboard-container">
         <nav className="nav-bar">
-          <h1 className="site-logo">DG</h1>
+          <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
         </nav>
         <header role="banner">
           <h2 className="page-title">Your Listings</h2>
@@ -42,21 +43,9 @@ export default class Dashboard extends React.Component {
             New Listing
           </Link>
           <section id="search-results">
-            <div className="result">
-              <span className="org-name">Org 1</span>
-              <span className="position-title">Title</span>
-              <span className="post-date">Date</span>
-            </div>
-            <div className="result">
-              <span className="org-name">Org 2</span>
-              <span className="position-title">Title</span>
-              <span className="post-date">Date</span>
-            </div>
-            <div className="result">
-              <span className="org-name">Org 3</span>
-              <span className="position-title">Title</span>
-              <span className="post-date">Date</span>
-            </div>
+            {this.state.listings.map((listing, index) => (
+              <Result listing={listing} key={index} />
+            ))}
           </section>
         </main>
       </div>

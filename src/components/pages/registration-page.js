@@ -23,21 +23,22 @@ export default class RegistrationPage extends React.Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        this.props.history.push("/login-page");
+        this.props.history.push("/login");
       })
       .catch(error => {
-        console.log("bad request", error);
+        event.preventDefault();
+        {('.username-password-error-message').html(error.message)}
       });
   }
   render() {
     return (
       <div className="registration-container">
         <nav className="nav-bar">
-          <h1 className="site-logo">DG</h1>
-          <Link to="#" className="sign-in-link">
-            Sign in
-          </Link>
+          <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
         </nav>
+        <Link to="/login" className="sign-in-link">
+          Sign in
+        </Link>
         <header role="banner">
           <h2 className="page-title">Sign Up</h2>
         </header>
@@ -97,6 +98,7 @@ export default class RegistrationPage extends React.Component {
               Sign up
             </button>
           </form>
+          <div className="username-password-error-message"></div>
         </main>
       </div>
     );
