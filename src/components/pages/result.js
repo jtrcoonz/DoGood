@@ -1,5 +1,6 @@
 import React from "react";
 import "../pages-styling/result.css";
+import { API_BASE_URL } from "../../config";
 
 export default class Result extends React.Component {
   constructor(props) {
@@ -15,12 +16,31 @@ export default class Result extends React.Component {
     });
   }
 
+  deleteResult = () => {
+    fetch(`${API_BASE_URL}/listings/${this.props.listing.id}`, {
+      headers: {
+        Accept: 'application/json',
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
   render() {
+    const deleteButton = this.props.deleteButton == 'x' 
+                       ? <span className="delete-button" onClick={this.deleteResult}>{this.props.deleteButton}</span>
+                       : '';
     return (
       <div className="result">
         <span className="org-name">{this.props.listing.title}</span>
-        <span className="position-title"><a href = {`${this.props.listing.applyLink}`}>{this.props.listing.title}</a></span>
+        <span className="position-title"><a href = {`https://${this.props.listing.applyLink}`} target="_blank">{this.props.listing.title}</a></span>
         <span className="post-date">{this.props.listing.date.toString().slice(0, 10)}</span>
+        {deleteButton}
         <button className="drop-arrow" onClick={() => this.toggleDetails()}>
           {this.state.displayDetails ? "▲" : "▼"}
         </button>

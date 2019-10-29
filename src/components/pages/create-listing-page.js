@@ -23,7 +23,7 @@ export default class CreateListingPage extends React.Component {
     })
       .then(response => {
         console.log(response);
-        // window.location.href = "dashboard.js";
+        this.props.history.push("/dashboard");
       })
       .catch(error => {
         console.log("bad request");
@@ -71,27 +71,27 @@ export default class CreateListingPage extends React.Component {
               id="create-category"
               ref={input => (this.categoryInput = input)}
             >
-              <option value="animals">Animals</option>
-              <option value="arts-culture-humanities">
+              <option value="Animals">Animals</option>
+              <option value="Arts, Culture, Humanities">
                 Arts, Culture, Humanities
               </option>
-              <option value="community-development">
+              <option value="Community Development">
                 Community Development
               </option>
-              <option value="education">Education</option>
-              <option value="environment">Environment</option>
-              <option value="health">Health</option>
-              <option value="human-and-civil-rights">
+              <option value="Education">Education</option>
+              <option value="Environment">Environment</option>
+              <option value="Health">Health</option>
+              <option value="Human and Civil Rights">
                 Human and Civil Rights
               </option>
-              <option value="human-and-social-services">
+              <option value="Human and Social Services">
                 Human and Social Services
               </option>
-              <option value="international">International</option>
-              <option value="research-and-public-policy">
+              <option value="International">International</option>
+              <option value="Research and Public Policy">
                 Research and Public Policy
               </option>
-              <option value="religion">Religion</option>
+              <option value="Religion">Religion</option>
             </select>
             <label className="form-label" htmlFor="create-location">
               location
@@ -104,7 +104,7 @@ export default class CreateListingPage extends React.Component {
               ref={input => (this.locationInput = input)}
             />
             <label className="form-label" htmlFor="create-apply-link">
-              Apply link
+              Apply link (https:// included)
             </label>
             <input
               type="text"

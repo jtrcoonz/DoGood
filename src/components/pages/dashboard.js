@@ -44,7 +44,7 @@ export default class Dashboard extends React.Component {
           </Link>
           <section id="search-results">
             {this.state.listings.map((listing, index) => (
-              <Result listing={listing} key={index} />
+              <Result listing={listing} key={index} deleteButton={'x'}/>
             ))}
           </section>
         </main>

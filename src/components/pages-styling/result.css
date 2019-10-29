@@ -8,3 +8,7 @@
 .detail-header {
     text-decoration: underline;
 }
+.delete-button {
+    position: absolute;
+    right: 5px;
+}

@@ -20,15 +20,15 @@ export default class RegistrationPage extends React.Component {
       method: "POST",
       body: JSON.stringify(user)
     })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-        this.props.history.push("/login");
-      })
-      .catch(error => {
-        event.preventDefault();
-        {('.username-password-error-message').html(error.message)}
-      });
+    .then(res => res.json())
+    .then(response => {
+      console.log(response);
+      this.props.history.push("/login");
+    })
+    .catch(error => {
+      event.preventDefault();
+      {('.username-password-error-message').html(error.message)}
+    });
   }
   render() {
     return (
