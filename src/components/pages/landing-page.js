@@ -54,7 +54,7 @@ export default class LandingPage extends React.Component {
         </header>
         <main role="main">
           <h3 id="search-bar-label">Search</h3>
-          <select onChange={this.handleSelection}>
+          <select onChange={this.handleSelection} id="search-bar">
             <option value="">-Please select a category-</option>
             <option value="Animals">Animals</option>
             <option value="Arts, Culture, Humanities">Arts, Culture, Humanities</option>
