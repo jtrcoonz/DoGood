@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
-
+import AppContext from "./app-context";
 import LandingPage from "./pages/landing-page";
 import RegistrationPage from "./pages/registration-page";
 import CreateListingPage from "./pages/create-listing-page";
@@ -11,9 +11,29 @@ import Login from "./pages/login-page"
 import { refreshAuthToken } from "../actions/auth";
 
 export class App extends React.Component {
+  
   state = {
     listings: []
   }
+  
+  componentDidMount() {
+    fetch(`${API_BASE_URL}/listings`, {
+      headers: {
+        Accept: "application/json"
+      },
+      method: "GET"
+    })
+    .then(response => response.json())
+    .then(responseJson => {
+      this.setState({
+        listings: responseJson
+      });
+    })
+    .catch(err => {
+      console.log("Whoops! Try this again.");
+    });
+  }
+
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
@@ -44,14 +64,19 @@ export class App extends React.Component {
   }
 
   render() {
+    const value = {
+      listings: this.state.listings
+    }
     return (
-      <div className="app">
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signup" component={RegistrationPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/create" component={CreateListingPage} />
-        <Route exact path="/login" component={Login} />
-      </div>
+      <AppContext.Provider value={value}>
+        <div className="app">
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/signup" component={RegistrationPage} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/create" component={CreateListingPage} />
+          <Route exact path="/login" component={Login} />
+        </div>
+      </AppContext.Provider>
     );
   }
 }

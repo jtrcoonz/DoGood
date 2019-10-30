@@ -1,35 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../pages-styling/landing-page.css";
-import { API_BASE_URL } from "../../config";
+// import { API_BASE_URL } from "../../config";
 import Result from "./result";
+import AppContext from "../app-context";
 
 export default class LandingPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      listings: []
-    };
+  static contextType = AppContext;
+  
+  state = {
+    category: ''
   }
-  componentDidMount() {
-    fetch(`${API_BASE_URL}/listings`, {
-      headers: {
-        Accept: "application/json"
-      },
-      method: "GET"
+
+  handleSelection = (e) => {
+    const category = e.target.value;
+    this.setState({
+      category,
     })
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState({
-          listings: responseJson
-        });
-      })
-      .catch(err => {
-        console.log("Whoops! Try this again.");
-      });
   }
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     listings: []
+  //   };
+  // }
+  // componentDidMount() {
+  //   fetch(`${API_BASE_URL}/listings`, {
+  //     headers: {
+  //       Accept: "application/json"
+  //     },
+  //     method: "GET"
+  //   })
+  //     .then(response => response.json())
+  //     .then(responseJson => {
+  //       this.setState({
+  //         listings: responseJson
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log("Whoops! Try this again.");
+  //     });
+  // }
   render() {
-    console.log(this.state.listings);
+    
+    const filteredListings = this.context.listings.reduce((acc, listing) => {
+      const category = this.state.category;
+      if (!category) {
+        acc.push(<Result listing={listing} key={listing.id} />)
+      }
+      else if (category && listing.category === category) {
+        acc.push(<Result listing={listing} key={listing.id} />)
+      }
+      return acc;
+    }, []);
+
     return (
       <div id="landing-container">
         <nav className="nav-bar">
@@ -53,15 +78,25 @@ export default class LandingPage extends React.Component {
         </header>
         <main role="main">
           <h3 id="search-bar-label">Search</h3>
-          <input
-            type="text"
-            placeholder="IPV, homelessness..."
-            id="search-bar"
-          />
+          <select onChange={this.handleSelection}>
+            <option value="#">-Please select a category-</option>
+            <option value="Animals">Animals</option>
+            <option value="Arts, Culture, Humanities">Arts, Culture, Humanities</option>
+            <option value="Community Development">Community Development</option>
+            <option value="Education">Education</option>
+            <option value="Environment">Environment</option>
+            <option value="Health">Health</option>
+            <option value="Human and Civil Rights">Human and Civil Rights</option>
+            <option value="Human and Social Services">Human and Social Services</option>
+            <option value="International">International</option>
+            <option value="Research and Public Policy">Research and Public Policy</option>
+            <option value="Religion">Religion</option>
+          </select>
           <section id="search-results">
-            {this.state.listings.map((listing, index) => (
+            {filteredListings}
+            {/* {this.state.listings.map((listing, index) => (
               <Result listing={listing} key={index} />
-            ))}
+            ))} */}
           </section>
         </main>
       </div>
