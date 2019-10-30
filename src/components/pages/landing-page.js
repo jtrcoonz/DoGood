@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../pages-styling/landing-page.css";
-// import { API_BASE_URL } from "../../config";
 import Result from "./result";
 import AppContext from "../app-context";
 
@@ -19,29 +18,6 @@ export default class LandingPage extends React.Component {
     })
   }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     listings: []
-  //   };
-  // }
-  // componentDidMount() {
-  //   fetch(`${API_BASE_URL}/listings`, {
-  //     headers: {
-  //       Accept: "application/json"
-  //     },
-  //     method: "GET"
-  //   })
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       this.setState({
-  //         listings: responseJson
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log("Whoops! Try this again.");
-  //     });
-  // }
   render() {
     
     const filteredListings = this.context.listings.reduce((acc, listing) => {
@@ -94,9 +70,6 @@ export default class LandingPage extends React.Component {
           </select>
           <section id="search-results">
             {filteredListings}
-            {/* {this.state.listings.map((listing, index) => (
-              <Result listing={listing} key={index} />
-            ))} */}
           </section>
         </main>
       </div>
