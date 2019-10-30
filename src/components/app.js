@@ -7,7 +7,7 @@ import RegistrationPage from "./pages/registration-page";
 import CreateListingPage from "./pages/create-listing-page";
 import Dashboard from "./pages/dashboard";
 import Login from "./pages/login-page";
-import API_BASE_URL from "../config";
+import { API_BASE_URL } from "../config";
 
 import { refreshAuthToken } from "../actions/auth";
 
