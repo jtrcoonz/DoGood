@@ -37,14 +37,15 @@ export default class Result extends React.Component {
                        : '';
     return (
       <div className="result">
-        <span className="org-name">{this.props.listing.user.organizationName}</span>
-        <span className="position-title"><a href = {`https://${this.props.listing.applyLink}`} target="_blank">{this.props.listing.title}</a></span>
-        <span className="post-date">{this.props.listing.date.toString().slice(0, 10)}</span>
-        {deleteButton}
-        <button className="drop-arrow" onClick={() => this.toggleDetails()}>
-          {this.state.displayDetails ? "▲" : "▼"}
-        </button>
-
+        <div className="result-basic">
+          <span className="org-name">{this.props.listing.user.organizationName}</span>
+          <span className="position-title"><a href = {`https://${this.props.listing.applyLink}`} target="_blank">{this.props.listing.title}</a></span>
+          <span className="post-date">{this.props.listing.date.toString().slice(0, 10)}</span>
+          {deleteButton}
+          <button className="drop-arrow" onClick={() => this.toggleDetails()}>
+            {this.state.displayDetails ? "▲" : "▼"}
+          </button>
+        </div>
         {this.state.displayDetails ? (
           <div className="result-details">
             <span className="result-category">
