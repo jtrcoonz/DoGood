@@ -3,10 +3,11 @@
     border: none;
 }
 .result-details {
-    margin-top: 5px;
+    margin: 15px;
 }
 .detail-header {
     text-decoration: underline;
+    font-weight: 600;
 }
 .delete-button {
     position: absolute;
