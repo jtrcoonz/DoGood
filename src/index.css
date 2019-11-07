@@ -39,7 +39,7 @@ header {
 .org-name {
 	font-weight: 700;
 }
-.position-title {
+.position-title > a {
 	color: rgba(198, 13, 13, 1);
 	padding-left: 15px;
 	text-decoration: underline;

@@ -1,3 +1,6 @@
+.result {
+    padding-left: 15px;
+}
 .drop-arrow {
     margin-left: 10px;
     border: 1px solid rgba(198, 13, 13, 1);
@@ -19,8 +22,11 @@
     position: absolute;
     right: 10px;
 }
-@media screen and (min-width: 0px) and (max-width: 400px) {
+@media screen and (min-width: 0px) and (max-width: 500px) {
     .post-date {
         display: none;
+    }
+    .result {
+        text-align: center;
     }
 }
