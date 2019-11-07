@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 import Result from "./result";
+import '../pages-styling/dashboard.css';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ export default class Dashboard extends React.Component {
           <h2 className="page-title">Your Listings</h2>
         </header>
         <main role="main" id="dash-main">
-          <Link to="/create" className="button-style">
+          <Link to="/create" className="button-style" id="new-listing-button">
             New Listing
           </Link>
           <section id="search-results">

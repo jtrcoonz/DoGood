@@ -10,5 +10,10 @@
 }
 .delete-button {
     position: absolute;
-    right: 5px;
+    right: 10px;
+}
+@media screen and (min-width: 390px) {
+    .post-date {
+        display: hidden;
+    }
 }
