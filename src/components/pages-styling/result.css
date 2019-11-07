@@ -12,8 +12,8 @@
     position: absolute;
     right: 10px;
 }
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 0px) and (max-width: 400px) {
     .post-date {
-        display: hidden;
+        display: none;
     }
 }
