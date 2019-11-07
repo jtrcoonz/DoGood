@@ -26,7 +26,7 @@
     .post-date {
         display: none;
     }
-    .result {
+    .result > .org-name, a, .drop-arrow {
         text-align: center;
     }
 }
