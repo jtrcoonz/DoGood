@@ -77,7 +77,6 @@ export default class Result extends React.Component {
               <span>: </span>
               {deleteButton2}
             </span>
-            
           </div>
         ) : null}
       </div>

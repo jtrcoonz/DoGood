@@ -54,6 +54,6 @@
         display: none;
     }
     .result-delete-small-px {
-        display: inline;
+        display: inline-block;
     }
 }
