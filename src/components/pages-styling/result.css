@@ -53,7 +53,7 @@
     #delete-button-1 {
         display: none;
     }
-    .result-details > .result-delete-small-px {
-        display: inline-block;
+    #delete-button-2 {
+        display: inline;
     }
 }
