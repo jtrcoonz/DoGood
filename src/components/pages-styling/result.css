@@ -22,11 +22,18 @@
     position: absolute;
     right: 10px;
 }
+.org-name {
+    font-weight: 700;
+    padding-left: 15px;
+}
 @media screen and (min-width: 0px) and (max-width: 500px) {
     .post-date {
         display: none;
     }
     .result-basic {
         text-align: center;
+    }
+    .org-name {
+        padding-left: 15px;
     }
 }
