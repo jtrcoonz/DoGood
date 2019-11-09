@@ -41,11 +41,6 @@ header {
 	padding-left: 15px;
 	text-decoration: underline;
 }
-.post-date {
-	color: rgba(112, 112, 112, 1);
-	position: absolute;
-	right: 35px;
-}
 form {
 	width: 90%;
 	margin: 20px auto;
