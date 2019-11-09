@@ -1,7 +1,7 @@
 import React from "react";
 import "../pages-styling/result.css";
 import { API_BASE_URL } from "../../config";
-import { NONAME } from "dns";
+// import { NONAME } from "dns";
 
 export default class Result extends React.Component {
   constructor(props) {
