@@ -50,7 +50,10 @@
     .org-name {
         padding-left: 0px;
     }
-    .delete-button {
+    #delete-button-1 {
         display: none;
+    }
+    #result-delete-small-px {
+        display: inline;
     }
 }
