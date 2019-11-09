@@ -32,7 +32,7 @@ export default class Result extends React.Component {
   }
 
   render() {
-    const deleteButton = this.props.deleteButton == 'X' 
+    const deleteButton = this.props.deleteButton == 'x' 
                        ? <span className="delete-button" onClick={this.deleteResult}>{this.props.deleteButton}</span>
                        : '';
     return (
