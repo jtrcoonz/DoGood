@@ -40,20 +40,4 @@
     font-weight: 700;
     padding-left: 15px;
 }
-@media screen and (min-width: 0px) and (max-width: 600px) {
-    .post-date {
-        display: none;
-    }
-    .result-basic {
-        text-align: center;
-    }
-    .org-name {
-        padding-left: 0px;
-    }
-    #delete-button-1 {
-        display: none;
-    }
-    #delete-button-2 {
-        display: inline;
-    }
-}
+

@@ -1,5 +1,6 @@
 import React from "react";
 import "../pages-styling/result.css";
+import "../pages-styling/result-media-queries.css"
 import { API_BASE_URL } from "../../config";
 // import { NONAME } from "dns";
 
