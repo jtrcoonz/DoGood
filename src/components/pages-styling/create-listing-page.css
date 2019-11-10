@@ -1,3 +1,7 @@
 form {
 	max-width: 500px;
 }
+#create-category {
+	-webkit-appearance: none;
+	background-color: white;
+}
