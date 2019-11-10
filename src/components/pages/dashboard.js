@@ -41,7 +41,7 @@ export default class Dashboard extends React.Component {
       <div className="dashboard-container">
         <nav className="nav-bar">
           <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
-          <Link to="/" onClick={this.signOut}>
+          <Link to="/" className="sign-in-link" onClick={this.signOut}>
             Sign out
           </Link>
         </nav>
