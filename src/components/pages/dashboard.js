@@ -30,11 +30,18 @@ export default class Dashboard extends React.Component {
         console.log("Whoops! Try this again.");
       });
   }
+  logOut() {
+    event.preventDefault();
+    localStorage.getItem('token');
+  }
   render() {
     return (
       <div className="dashboard-container">
         <nav className="nav-bar">
           <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
+          <Link to="/">
+            Sign out
+          </Link>
         </nav>
         <header role="banner">
           <h2 className="page-title">Your Listings</h2>
