@@ -18,8 +18,18 @@ export default class LandingPage extends React.Component {
     })
   }
 
+  authCheck(e) {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location("/signup")
+    }
+    else {
+      window.location("/dashboard")
+    }
+  }
+
   render() {
-    
     const filteredListings = this.context.listings.reduce((acc, listing) => {
       const category = this.state.category;
       if (!category) {
@@ -38,7 +48,7 @@ export default class LandingPage extends React.Component {
           <Link to="/login" className="sign-in-link">
             Sign in
           </Link>
-          <Link to="/dashboard" className="dashboard-link">
+          <Link to="/dashboard" onClick={this.authCheck} className="dashboard-link">
             Dashboard
           </Link>
         </nav>
