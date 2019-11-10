@@ -35,6 +35,7 @@ export default class Dashboard extends React.Component {
     localStorage.setItem("token", "");
     window.location.href = "/"
   }
+  
   render() {
     return (
       <div className="dashboard-container">
