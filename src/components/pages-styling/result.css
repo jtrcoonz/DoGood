@@ -19,8 +19,6 @@
     font-weight: 600;
 }
 .delete-button {
-    position: absolute;
-    right: 10px;
     border: 1px solid rgba(198, 13, 13, 1);
     padding: 0px 5px;
     border-radius: 3px;
@@ -54,12 +52,15 @@
         display: none;
     }
     .result-delete-small-px {
-        display: inline;
+        display: block;
+        margin-top: 15px;
     }
 }
 @media screen and (min-width: 601px) {
     #delete-button-1 {
         display: inline;
+        position: absolute;
+        right: 10px;
     }
     .result-delete-small-px {
         display: none;
