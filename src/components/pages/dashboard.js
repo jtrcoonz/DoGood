@@ -30,7 +30,7 @@ export default class Dashboard extends React.Component {
         console.log("Whoops! Try this again.");
       });
   }
-  logOut() {
+  signOut() {
     event.preventDefault();
     localStorage.getItem('token');
   }
@@ -39,7 +39,7 @@ export default class Dashboard extends React.Component {
       <div className="dashboard-container">
         <nav className="nav-bar">
           <h1 className="site-logo" onClick={() => { window.location.href = "/"; }}>DG</h1>
-          <Link to="/">
+          <Link to="/" onClick={this.signOut}>
             Sign out
           </Link>
         </nav>
