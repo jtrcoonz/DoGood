@@ -31,8 +31,8 @@ export default class Dashboard extends React.Component {
       });
   }
   signOut = (event) => {
-    this.event.preventDefault();
-    localStorage.setItem('token', '');
+    event.preventDefault();
+		localStorage.setItem("token", "");
   }
   render() {
     return (
