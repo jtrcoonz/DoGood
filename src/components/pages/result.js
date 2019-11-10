@@ -40,9 +40,6 @@ export default class Result extends React.Component {
     const deleteButton2 = this.props.deleteButton == 'x' 
                        ? <span className="delete-button" id="delete-button-2" onClick={this.deleteResult}>{this.props.deleteButton}</span>
                        : '';
-    const hidden = {
-      display: 'none' 
-    };
     return (
       <div className="result">
         <div className="result-basic">
@@ -73,7 +70,7 @@ export default class Result extends React.Component {
               <span>: </span>
               {this.props.listing.description}
             </span>
-            <span className="result-delete-small-px" style={hidden}>
+            <span className="result-delete-small-px">
               <span className="detail-header">Delete</span>
               <span>: </span>
               {deleteButton2}
