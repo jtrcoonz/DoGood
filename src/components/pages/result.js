@@ -26,7 +26,7 @@ export default class Result extends React.Component {
       method: "DELETE"
     })
     .then(response => response.json())
-    .then(location.reload())
+    .then(window.location.reload())
     .catch(err => {
       console.log(err);
     })
