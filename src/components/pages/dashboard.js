@@ -32,7 +32,8 @@ export default class Dashboard extends React.Component {
   }
   signOut = (event) => {
     event.preventDefault();
-		localStorage.setItem("token", "");
+    localStorage.setItem("token", "");
+    window.location.href = "/"
   }
   render() {
     return (
