@@ -22,10 +22,10 @@ export default class LandingPage extends React.Component {
     e.preventDefault();
     const token = localStorage.getItem("token");
     if (!token) {
-      window.location("/signup")
+      window.location.href = "/signup";
     }
     else {
-      window.location("/dashboard")
+      window.location.href = "/dashboard";
     }
   }
 
